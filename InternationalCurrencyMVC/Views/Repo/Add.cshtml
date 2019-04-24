@@ -1,0 +1,35 @@
+﻿@model InternationalCurrencyMVC.Models.CurrencyRepo
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add</h2>
+
+<h4>CurrencyRepo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="editor-field">
+                <!-- Drop down list for fighter choices -->
+                @Html.LabelFor(m => m.selectedCoinToAdd)
+                @Html.DropDownListFor(m => m.selectedCoinToAdd, new SelectList(ViewBag.CoinTypes, Model.selectedCoinToAdd))
+                @Html.ValidationMessageFor(m => m.selectedCoinToAdd)
+            </div>
+            <div class="form-group">
+                <h6></h6>
+                <input type="submit" value="Add to Repo" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

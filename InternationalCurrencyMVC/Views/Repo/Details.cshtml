@@ -1,0 +1,45 @@
+﻿@model InternationalCurrencyMVC.Models.USCoin
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>USCoin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <!--Coin Year-->
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <!--Coin Name-->
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <!--Value of Coin-->
+        <dt>
+            @Html.DisplayNameFor(model => model.MonetaryValue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MonetaryValue)
+        </dd>
+        <!--Mint mark of US coin-->
+        <dt>
+            @Html.DisplayNameFor(model => model.MintMark)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MintMark)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

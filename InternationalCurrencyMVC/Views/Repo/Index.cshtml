@@ -1,0 +1,45 @@
+﻿@model InternationalCurrencyMVC.Models.CurrencyRepo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>CurrencyRepo</h2>
+
+<div>
+    <h4>USCurrencyRepo</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+<div>
+    <b>Total Repo Value: </b>@Html.TextBox("TotalValue",Model.TotalValue(), new { @readonly = "readonly" })
+</div>
+<form method="POST">
+    <label for="sAmount">Amount to Make Change For: </label>
+    <input type="text" id="sAmount" placeholder="0"  name="sAmount"/>
+    <input type="submit" />
+</form>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model.Coins)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("More Details", "Details", new { id = item.Name })|
+                    @Html.ActionLink("Remove", "Delete", new { id = item.Name })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Add a Coin", "Add", new { }) |
+    @Html.ActionLink("Save Repo", "SaveRepo", new { }) |
+    @Html.ActionLink("Load Repo", "LoadRepo", new { }) |
+    @Html.ActionLink("New Repo", "NewRepo", new { })
+</div>
